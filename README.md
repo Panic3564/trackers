@@ -37,7 +37,3 @@ To add more tracker sources:
 ## Contributing
 
 Pull requests are welcome. Please add new tracker sources to the `sources.txt` file. Generally, quality sources are preferred over quantity. If you find a source that is no longer valid, please remove it from the list.
-
-## License
-
-This project is open source and available under the MIT License.
