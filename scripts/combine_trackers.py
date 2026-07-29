@@ -1,10 +1,11 @@
 import requests
-import os
 from urllib.parse import urlparse
 
-# File containing source URLs, one per line
-SOURCES_FILE = "sources.txt"
-OUTPUT_FILE = "trackers.txt"
+# Configuration
+SOURCES_ALL_FILE = "sources-all.txt"
+SOURCES_BEST_FILE = "sources-best.txt"
+OUTPUT_ALL_FILE = "trackers-all.txt"
+OUTPUT_BEST_FILE = "trackers-best.txt"
 
 
 def extract_protocol(url):
@@ -46,24 +47,24 @@ def fetch_remote_file(url):
         return ""
 
 
-def read_sources_file():
-    """Read source URLs from the sources.txt file."""
+def read_sources_file(filename):
+    """Read source URLs from a file."""
     try:
-        with open(SOURCES_FILE, "r") as f:
+        with open(filename, "r") as f:
             sources = [line.strip() for line in f if line.strip() and not line.strip().startswith("#")]
         return sources
     except FileNotFoundError:
-        print(f"Error: {SOURCES_FILE} not found. Please create it with one URL per line.")
+        print(f"Error: {filename} not found. Please create it with one URL per line.")
         return []
 
 
-def main():
-    # Read source URLs from file
-    source_urls = read_sources_file()
+def process_trackers_from_sources(sources_file, output_file):
+    """Process trackers from a sources file and write to output file."""
+    source_urls = read_sources_file(sources_file)
     
     if not source_urls:
-        print("No source URLs found. Exiting.")
-        return
+        print(f"No source URLs found in {sources_file}. Skipping.")
+        return 0
 
     all_trackers = []
 
@@ -79,11 +80,24 @@ def main():
     processed_trackers = process_urls(all_trackers)
 
     # Write to output file
-    with open(OUTPUT_FILE, "w") as f:
+    with open(output_file, "w") as f:
         for tracker in processed_trackers:
             f.write(tracker + "\n")
 
-    print(f"Successfully updated {OUTPUT_FILE} with {len(processed_trackers)} unique trackers")
+    print(f"Successfully updated {output_file} with {len(processed_trackers)} unique trackers")
+    return len(processed_trackers)
+
+
+def main():
+    # Process all trackers
+    all_count = process_trackers_from_sources(SOURCES_ALL_FILE, OUTPUT_ALL_FILE)
+    
+    # Process best trackers
+    best_count = process_trackers_from_sources(SOURCES_BEST_FILE, OUTPUT_BEST_FILE)
+    
+    print(f"\nSummary:")
+    print(f"  All trackers: {all_count}")
+    print(f"  Best trackers: {best_count}")
 
 
 if __name__ == "__main__":

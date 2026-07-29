@@ -8,6 +8,9 @@ This project is not affiliated with or endorsed by qBittorrent. Use at your own 
 ## Features
 
 - Automatically updated every 24 hours
+- Generates two separate files:
+  - `trackers-all.txt`: Comprehensive list from all sources
+  - `trackers-best.txt`: Curated list from best sources only
 - Combines trackers from multiple reputable sources
 - Removes duplicate entries
 - Sorts by protocol (udp, http, https, ws, wss) then alphabetically
@@ -15,13 +18,21 @@ This project is not affiliated with or endorsed by qBittorrent. Use at your own 
 
 ## Usage
 
-1. Copy the contents of `trackers.txt`
+### All Trackers
+1. Copy the contents of `trackers-all.txt`
+2. In qBittorrent, go to Tools > Options > BitTorrent
+3. Paste the trackers into the "Trackers" field (one per line)
+
+### Best Trackers Only
+1. Copy the contents of `trackers-best.txt`
 2. In qBittorrent, go to Tools > Options > BitTorrent
 3. Paste the trackers into the "Trackers" field (one per line)
 
 ## Adding Sources
 
-To add more tracker sources, edit the `sources.txt` file and add one URL per line.
+To add more tracker sources:
+- Edit `sources-all.txt` for comprehensive list
+- Edit `sources-best.txt` for curated best list
 
 ## Contributing
 
