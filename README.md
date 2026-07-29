@@ -1,6 +1,9 @@
 # qBittorrent Trackers List
 
-This repository automatically aggregates tracker lists from multiple trusted sources, removes duplicates, and sorts them for optimal use with qBittorrent.
+This repository automatically aggregates tracker lists from multiple  sources, removes duplicates, and sorts them for optimal use with qBittorrent.
+
+## Disclaimer
+This project is not affiliated with or endorsed by qBittorrent. Use at your own risk. The maintainers of this repository are not responsible for any issues that may arise from using the provided tracker lists, including but not limited to, potential bans, blocks, or other restrictions imposed by torrent sites or ISPs. Always ensure that you are complying with local laws and regulations when using torrent trackers. Malware or malicious trackers may be present in the lists, so use caution and verify the sources before adding them to your torrent client.
 
 ## Features
 
