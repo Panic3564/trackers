@@ -25,7 +25,7 @@ To add more tracker sources, edit the `sources.txt` file and add one URL per lin
 
 ## Contributing
 
-Pull requests are welcome. Please add new tracker sources to the `sources.txt` file.
+Pull requests are welcome. Please add new tracker sources to the `sources.txt` file. Generally, quality sources are preferred over quantity. If you find a source that is no longer valid, please remove it from the list.
 
 ## License
 
