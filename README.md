@@ -15,18 +15,32 @@ This project is not affiliated with or endorsed by qBittorrent. Use at your own 
 - Removes duplicate entries
 - Sorts by protocol (udp, http, https, ws, wss) then alphabetically
 - Ready to use with qBittorrent
-
 ## Usage
 
-### All Trackers
-1. Copy the contents of `trackers-all.txt`
-2. In qBittorrent, go to Tools > Options > BitTorrent
-3. Paste the trackers into the "Trackers" field (one per line)
+### Method 1: Automatically Append Trackers from URL (Recommended)
 
-### Best Trackers Only
-1. Copy the contents of `trackers-best.txt`
-2. In qBittorrent, go to Tools > Options > BitTorrent
+This method automatically adds trackers to all new downloads:
+
+1. Get the raw URL of the tracker file you want to use:
+   - For all trackers: `https://raw.githubusercontent.com/Panic3564/trackers/refs/heads/main/trackers-all.txt`
+   - For best trackers: `https://raw.githubusercontent.com/Panic3564/trackers/refs/heads/main/trackers-best.txt`
+
+2. In qBittorrent, go to **Tools > Options > BitTorrent**
+
+3. In the "Automatically append trackers from URL to new downloads" field, paste the raw URL
+
+4. Click **Apply** and **OK**
+
+Now all new downloads will automatically have these trackers appended.
+
+### Method 2: Manual Trackers List
+
+If you prefer to manually add trackers to the global list:
+
+1. Copy the contents of `trackers-all.txt` or `trackers-best.txt`
+2. In qBittorrent, go to **Tools > Options > BitTorrent**
 3. Paste the trackers into the "Trackers" field (one per line)
+4. Click **Apply** and **OK**
 
 ## Adding Sources
 
